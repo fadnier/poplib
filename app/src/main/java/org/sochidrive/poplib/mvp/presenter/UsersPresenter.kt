@@ -6,7 +6,9 @@ import org.sochidrive.poplib.mvp.model.repo.GithubUsersRepo
 import org.sochidrive.poplib.mvp.presenter.list.IUsersListPresenter
 import org.sochidrive.poplib.mvp.view.UsersView
 import org.sochidrive.poplib.mvp.view.list.UserItemView
+import org.sochidrive.poplib.navigation.Screens
 import ru.terrakok.cicerone.Router
+import ru.terrakok.cicerone.Screen
 
 class UsersPresenter(val router: Router, val usersRepo: GithubUsersRepo) : MvpPresenter<UsersView>() {
 
@@ -31,7 +33,7 @@ class UsersPresenter(val router: Router, val usersRepo: GithubUsersRepo) : MvpPr
         loadData()
 
         usersListPresenter.itemClickListener = { view ->
-            //router.navigateTo(<экран пользователя>)
+            router.navigateTo(Screens.UserScreen(view.pos))
         }
     }
 
