@@ -1,10 +1,11 @@
 package org.sochidrive.poplib.mvp.view
 
 import moxy.MvpView
-import moxy.viewstate.strategy.alias.AddToEndSingle
+import moxy.viewstate.strategy.AddToEndSingleStrategy
+import moxy.viewstate.strategy.StateStrategyType
 
-@AddToEndSingle
-interface UsersView: MvpView {
+@StateStrategyType(AddToEndSingleStrategy::class)
+interface UsersView : MvpView {
     fun init()
-    fun updateUsersList()
+    fun updateList()
 }
